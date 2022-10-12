@@ -6,7 +6,7 @@ import streamlit as st
 import config
 
 # TODO : you can (and should) rename and add tabs in the ./tabs folder, and import them here.
-from tabs import intro, dataset, visualisation, modelisation,conclusion,test
+import intro, dataset, visualisation, modelisation,conclusion,test
 
 
 
