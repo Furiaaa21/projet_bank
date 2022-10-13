@@ -156,10 +156,11 @@ def prediction(AGE,JOB, MARITAL, EDUCATION,HOUSING, LOAN,DEFAULT,DAY_OF_WEEK,MON
         [[AGE,JOB, MARITAL, EDUCATION, HOUSING, LOAN,DEFAULT,DAY_OF_WEEK,MONTH,CONTACT]])
     
     if pred == 0:
-        pred_text = 'Client à ne pas contacter'
+        pred_text = 'Client susceptible de ne pas souscrire au compte '
         st.error('Résultat: {}'.format(pred_text))
+        st.info("**Testez le client avec les données suivantes :** '33','blue-collar','married','basic.9y','no','no','no','fri','may','cellular'")
     else:
-        pred_text = 'Client à Contacter'
+        pred_text = 'Client à Contacter en priorité, client susceptible de souscrire au compte'
         st.success('Résultat: {}'.format(pred_text))
     return
 
