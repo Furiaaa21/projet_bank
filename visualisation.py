@@ -390,7 +390,7 @@ def run():
     st.title(title)
     
     st.header('_Variable Cible_')  
-    st.markdown("---")    
+    st.header('TEST')    
         
     pie_y=px.sunburst(df,path=['y'],title='Les clients ont t-il contracté un compte à termes?',color='y',color_discrete_map={'yes':'green','no':'blue'})
     pie_y.update_traces(textinfo="label+percent parent")
