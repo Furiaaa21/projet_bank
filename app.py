@@ -1,4 +1,39 @@
-from collections import OrderedDict
+Traceback (most recent call last):
+
+  File "/home/adminuser/venv/lib/python3.9/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 562, in _run_script
+
+    exec(code, module.__dict__)
+
+  File "/mount/src/projet_bank/app.py", line 59, in <module>
+
+    run()
+
+  File "/mount/src/projet_bank/app.py", line 55, in run
+
+    tab.run()
+
+  File "/mount/src/projet_bank/visualisation.py", line 394, in run
+
+    pie_y=px.sunburst(df,path=['y'],title='Les clients ont t-il contracté un compte à termes?',color='y',color_discrete_map={'yes':'green','no':'blue'})
+
+  File "/home/adminuser/venv/lib/python3.9/site-packages/plotly/express/_chart_types.py", line 1521, in sunburst
+
+    return make_figure(
+
+  File "/home/adminuser/venv/lib/python3.9/site-packages/plotly/express/_core.py", line 1947, in make_figure
+
+    args = process_dataframe_hierarchy(args)
+
+  File "/home/adminuser/venv/lib/python3.9/site-packages/plotly/express/_core.py", line 1637, in process_dataframe_hierarchy
+
+    df_all_trees = pd.concat([df_all_trees, df_tree], ignore_index=True)
+
+
+  File "/home/adminuser/venv/lib/python3.9/site-packages/pandas/core/generic.py", line 6296, in __getattr__
+
+    return object.__getattribute__(self, name)
+
+AttributeError: 'DataFrame' object has no attribute 'append'from collections import OrderedDict
 
 import streamlit as st
 
