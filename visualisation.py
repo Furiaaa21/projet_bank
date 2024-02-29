@@ -24,7 +24,7 @@ def plot_var(df):
         if x_axis_val=='job':
             
             df_job=df[['job']]
-            df_job['job_cat']=df_job['job'].replace(["admin.", "blue-collar","technician","services","management","entrepreneur","self-employed","housemaid","unemployed",    "student","retired"],["EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","UNEMPLOYED","UNEMPLOYED","UNEMPLOYED"])
+            df_job['job_cat']=df_job['job'].replace(["admin.", "blue-collar","technician","services","management","entrepreneur","self-employed","housemaid","unemployed","student","retired"],["EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","EMPLOYED","UNEMPLOYED","UNEMPLOYED","UNEMPLOYED"])
             st.bar_chart(df_job['job_cat'].value_counts())
             st.write("Le graphique ci-dessus a été obtenu en séparant les clients ayant un emploi de ceux qui n’en n’ont pas. En toute logique, la campagne cible essentiellement **les clients ayant un emploi**.")
             
@@ -390,7 +390,6 @@ def run():
     st.title(title)
     
     st.header('_Variable Cible_')  
-    st.header('TEST')    
         
     pie_y=px.sunburst(df,path=['y'],title='Les clients ont t-il contracté un compte à termes?',color='y',color_discrete_map={'yes':'green','no':'blue'})
     pie_y.update_traces(textinfo="label+percent parent")
@@ -403,8 +402,9 @@ def run():
     plot_var(df)
     
     st.header('_Heatmap_')
+    st.write(df.head())
     fig= plt.figure(figsize=(10,7))
-    heatmap=sns.heatmap(df.corr(method='pearson'), annot=True,cmap='coolwarm')
+    heatmap=sns.heatmap(df.corr(method='pearson',numeric_only=True), annot=True,cmap='coolwarm')
     st.write(fig)
     st.write("Les variables _emp.var.rate_, _cons.price.index_, _euribor3m_ et _nr.employed_ ont une corrélation très élevée entre elles. Avec _euribor3m_ et _nr.employed_ qui sont les variables ayant la corrélation la plus élevée: **0,97** .")
     st.write("En revanche, ces mêmes variables sont corrélés négativement par rapport à la variable cible.")
