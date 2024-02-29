@@ -64,7 +64,8 @@ def preprocessing(df):
     df['y'] = lb.fit_transform(df['y'])
     #ENCODAGE VARIABLE CAT
     Y=df['y']
-    X=df.drop('y',1)
+    X=df.drop('y',axis=1)
+    
     cat_var= X.select_dtypes(include= ["object"]).columns
     X = pd.get_dummies(X, columns = cat_var)
     
