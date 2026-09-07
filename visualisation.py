@@ -405,10 +405,8 @@ def run():
     st.write(df.head())
     fig= plt.figure(figsize=(10,7))
     heatmap = sns.heatmap(
-    df_numeric.corr(method='pearson'),
-    annot=True,
-    cmap='coolwarm'
-                        )
+    df_numeric = df.select_dtypes(include='number')        
+    df_numeric.corr(method='pearson'),annot=True,cmap='coolwarm')
     st.write(fig)
     st.write("Les variables _emp.var.rate_, _cons.price.index_, _euribor3m_ et _nr.employed_ ont une corrélation très élevée entre elles. Avec _euribor3m_ et _nr.employed_ qui sont les variables ayant la corrélation la plus élevée: **0,97** .")
     st.write("En revanche, ces mêmes variables sont corrélés négativement par rapport à la variable cible.")
